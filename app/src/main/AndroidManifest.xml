@@ -23,7 +23,10 @@
         <activity
             android:name=".SelectActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".AssembleActivity"></activity>
+        <activity
+            android:name=".AssembleActivity"
+            android:screenOrientation="landscape">
+        </activity>
     </application>
 
 </manifest>

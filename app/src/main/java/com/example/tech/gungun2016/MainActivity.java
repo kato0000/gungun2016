@@ -75,33 +75,6 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-
-        /*Button mButton2 = (Button) findViewById(R.id.mButton2);
-        mButton2.setText(missions[1].name);
-        mButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onActiveClick(view);
-            }
-        });
-
-        Button mButton3 = (Button) findViewById(R.id.mButton3);
-        mButton3.setText(missions[2].name);
-        mButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onActiveClick(view);
-            }
-        });
-
-        Button mButton4 = (Button) findViewById(R.id.mButton4);
-        mButton4.setText(missions[3].name);
-        mButton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onActiveClick(view);
-            }
-        });*/
     }
 
     public void onActiveClick(View view){

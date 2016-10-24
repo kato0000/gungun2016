@@ -11,7 +11,7 @@ public class Robot {
     String name;
     Part[] parts;
 
-    Robot(int id,int level,int status,String name,Part[] parts){
+    Robot(int id,int level,int status,String name){
         this.id = id;
         this.level = level;
         this.status = status;
@@ -20,8 +20,5 @@ public class Robot {
     }
 
     public void display() {
-    }
-
-    public void selectDisplay() {
     }
 }
