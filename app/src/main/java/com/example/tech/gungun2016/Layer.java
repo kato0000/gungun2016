@@ -1,9 +1,11 @@
 package com.example.tech.gungun2016;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.widget.ImageView;
 
 public class Layer {
     int order; //順番
@@ -19,3 +21,4 @@ public class Layer {
         this.offsetY = offsetY;
     }
 }
+
