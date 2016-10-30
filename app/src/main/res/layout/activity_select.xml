@@ -159,23 +159,23 @@
                         android:id="@+id/robot1"
                         android:src="@drawable/dog1"
                         android:layout_marginLeft="30dp"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginTop="5dp" />
 
                     <ImageView
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:id="@+id/robot2"
                         android:src="@drawable/dog2"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="25dp" />
 
                     <ImageView
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:id="@+id/robot3"
                         android:src="@drawable/dog3"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="5dp" />
 
                 </LinearLayout>
 
@@ -193,21 +193,24 @@
                         android:layout_height="140dp"
                         android:id="@+id/robot4"
                         android:src="@drawable/monkey1"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp" />
 
                     <ImageView
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:id="@+id/robot5"
                         android:src="@drawable/monkey2"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="5dp" />
 
                     <ImageView
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:id="@+id/robot6"
                         android:src="@drawable/monkey3"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -224,21 +227,24 @@
                         android:layout_height="140dp"
                         android:id="@+id/robot7"
                         android:src="@drawable/bird1"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp" />
 
                     <ImageView
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:id="@+id/robot8"
                         android:src="@drawable/bird2"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="5dp" />
 
                     <ImageView
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:id="@+id/robot9"
                         android:src="@drawable/bird3"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
             </LinearLayout>
 

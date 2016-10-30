@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SelectActivity extends Activity {
     @Override
@@ -24,7 +25,7 @@ public class SelectActivity extends Activity {
         ImageView imageViews[] = new ImageView[9];
         Robot[] robots = new Robot[9];
         robots[0] = new Robot(1,1,2,"dog1");
-        robots[1] = new Robot(2,2,1,"dog2");
+        robots[1] = new Robot(2,2,0,"dog2");
         robots[2] = new Robot(3,3,0,"dog3");
         robots[3] = new Robot(4,1,2,"monkey1");
         robots[4] = new Robot(5,2,2,"monkey2");
@@ -45,12 +46,13 @@ public class SelectActivity extends Activity {
                 R.drawable.dog1sil2, R.drawable.dog2sil2, R.drawable.dog3sil2,
                 R.drawable.monkey1sil2, R.drawable.monkey2sil2, R.drawable.monkey3sil2,
                 R.drawable.bird1sil2, R.drawable.bird2sil2, R.drawable.bird3sil2};
+        int qes = R.drawable.mark_question;
 
         for(int i=0; i< imageViews.length; i++) {
             imageViews[i] = (ImageView) findViewById(Rid[i]);
             switch(robots[i].status){
                 case 0:
-                    imageViews[i].setImageResource(roboSil[i]);
+                    imageViews[i].setImageResource(qes);
                     break;
                 case 1:
                     imageViews[i].setImageResource(roboSil2[i]);
@@ -59,6 +61,7 @@ public class SelectActivity extends Activity {
                     imageViews[i].setImageResource(robo[i]);
                     break;
             }
+
             //final int finalI = i;
             imageViews[i].setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,6 +72,24 @@ public class SelectActivity extends Activity {
                 }
              });
         }
+        for (int i = 0;i<imageViews.length;i++) {
+            if(robots[i].status == 1){
+                imageViews[i].setBackgroundResource(R.drawable.border);
+            }
+            else if(robots[i].status == 0){
+                boolean count = false;
+                for (int j = 0;j<imageViews.length;j++) {
+                    if(robots[j].status == 1){
+                        count = true;
+                    }
+                }
+                if(!count){
+                    imageViews[i].setBackgroundResource(R.drawable.border);
+                }
+            }
+        }
+
+
     }
 
     public void onActiveClick(View view){
