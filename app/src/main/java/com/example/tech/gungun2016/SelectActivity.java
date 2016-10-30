@@ -23,7 +23,7 @@ public class SelectActivity extends Activity {
         });
 
         ImageView imageViews[] = new ImageView[9];
-        Robot[] robots = new Robot[9];
+        final Robot[] robots = new Robot[9];
         robots[0] = new Robot(1,1,2,"dog1");
         robots[1] = new Robot(2,2,0,"dog2");
         robots[2] = new Robot(3,3,0,"dog3");
@@ -62,12 +62,12 @@ public class SelectActivity extends Activity {
                     break;
             }
 
-            //final int finalI = i;
+            final int finalI = i;
             imageViews[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
-                    //intent.putExtra();
+                    intent.putExtra("id", robots[finalI].id);
                     startActivity(intent);
                 }
              });
@@ -75,6 +75,11 @@ public class SelectActivity extends Activity {
         for (int i = 0;i<imageViews.length;i++) {
             if(robots[i].status == 1){
                 imageViews[i].setBackgroundResource(R.drawable.border);
+                for (int j = 0;j<imageViews.length;j++) {
+                    if(robots[j].status != 1){
+                        imageViews[j].setBackgroundResource(R.color.white);
+                    }
+                }
             }
             else if(robots[i].status == 0){
                 boolean count = false;

@@ -16,7 +16,21 @@ public class Robot {
         this.level = level;
         this.status = status;
         this.name = name;
-        this.parts = parts;
+        switch (level){
+            case 1:
+                parts = new Part[3];
+                break;
+            case 2:
+                parts = new Part[4];
+                break;
+            case 3:
+                parts = new Part[5];
+                break;
+        }
+        switch (id){
+            case 1:
+                break;
+        }
     }
 
     public void display() {
