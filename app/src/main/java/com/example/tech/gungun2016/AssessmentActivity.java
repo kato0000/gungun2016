@@ -19,7 +19,7 @@ public class AssessmentActivity extends Activity {
         String description = i.getStringExtra("description");
 
         TextView textView = (TextView) findViewById(R.id.textViewA);
-        textView.setText(description);
+        textView.setText("「" + description + "」");
 
         Button button = (Button) findViewById(R.id.buttonA);
         button.setOnClickListener(new View.OnClickListener() {

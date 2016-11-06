@@ -8,4 +8,7 @@ public class Mission {
         this.description = description;
         this.id = id;
     }
+    public String toString() {
+        return "id:" + id + ",description:" + description;
+    }
 }

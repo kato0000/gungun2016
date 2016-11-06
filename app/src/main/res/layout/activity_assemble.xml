@@ -19,24 +19,18 @@
         android:layout_alignParentEnd="true"
         android:textSize="40dp" />
 
+    <com.example.tech.gungun2016.MyView
+        android:id="@+id/my_view"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/parts1" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/parts2" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/parts3" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -52,9 +46,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/partssil"
-            android:src="@drawable/bird1sil2"
             android:layout_gravity="center"
             android:layout_marginLeft="100dp" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parts1"
+            android:src="@drawable/monkey1leg"
+            android:layout_gravity="left|bottom" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parts2"
+            android:src="@drawable/monkey1body"
+            android:layout_gravity="left|center_vertical" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parts3"
+            android:src="@drawable/monkey1head" />
+
     </FrameLayout>
+
 </RelativeLayout>

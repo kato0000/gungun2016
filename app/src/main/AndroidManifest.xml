@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tech.gungun2016">
 
+    <com.example.tech.gungun2016.MyView
+        android:id="@+id/my_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,7 +31,6 @@
         <activity
             android:name=".AssembleActivity"
             android:screenOrientation="landscape"></activity>
-        <activity android:name=".Main2Activity"></activity>
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@ public class SelectActivity extends Activity {
         ImageView imageViews[] = new ImageView[9];
         final Robot[] robots = new Robot[9];
         robots[0] = new Robot(1,1,2,"dog1");
-        robots[1] = new Robot(2,2,0,"dog2");
+        robots[1] = new Robot(2,2,1,"dog2");
         robots[2] = new Robot(3,3,0,"dog3");
         robots[3] = new Robot(4,1,2,"monkey1");
         robots[4] = new Robot(5,2,2,"monkey2");
@@ -67,7 +67,7 @@ public class SelectActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
-                    intent.putExtra("id", robots[finalI].id);
+                    intent.putExtra("robot_id", robots[finalI].id);
                     startActivity(intent);
                 }
              });

@@ -3,6 +3,7 @@ package com.example.tech.gungun2016;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,9 +29,13 @@ public class MainActivity extends Activity {
         textView.setText(user.name + "さん ようこそ");
 
         Random r = new Random();
-        int n = r.nextInt(5);
+        int num = r.nextInt(5);
         TextView textViewM = (TextView) findViewById(R.id.textViewM);
-        switch (n){
+        for (int i=0;i<missions.length;i++) {
+            //Log.d("見書", missions[i].toString());
+        }
+        //Log.d("テキストm", textViewM.toString());
+        switch (num){
             case 0:
                 textViewM.setText("もくひょうをクリアしてお供を組み立てよう");
                 break;
