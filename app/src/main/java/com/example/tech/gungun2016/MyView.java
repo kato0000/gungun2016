@@ -111,7 +111,7 @@ public class MyView extends View {
                 canvas.drawBitmap(dog37, bitmapWidth[7], bitmapHeight[7], mPaint);
                 break;
             case 4:
-                bitmapWidth[0] = 700;
+                bitmapWidth[0] = 600;
                 bitmapHeight[0] = 400;
                 bitmapWidth[1] = bitmapWidth[0] - 40;
                 bitmapHeight[1] = bitmapHeight[0] - 20;
@@ -143,8 +143,8 @@ public class MyView extends View {
                 bitmapHeight[5] = bitmapHeight[0] + 5;
                 bitmapWidth[6] = bitmapWidth[0] - 60;
                 bitmapHeight[6] = bitmapHeight[0] - 220;
-                Bitmap monkey20 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey2);
-                canvas.drawBitmap(monkey20, 200, 100, mPaint);
+//                Bitmap monkey20 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey2);
+//                canvas.drawBitmap(monkey20, 200, 100, mPaint);
                 Bitmap monkey21 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey2swordsil);
                 canvas.drawBitmap(monkey21, bitmapWidth[1], bitmapHeight[1], mPaint);
                 Bitmap monkey22 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey2armrsil);
@@ -175,8 +175,8 @@ public class MyView extends View {
                 bitmapHeight[6] = bitmapHeight[0] - 270;
                 bitmapWidth[7] = bitmapWidth[0] - 35;
                 bitmapHeight[7] = bitmapHeight[0] - 120;
-                Bitmap monkey30 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey3);
-                canvas.drawBitmap(monkey30, 200, 100, mPaint);
+//                Bitmap monkey30 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey3);
+//                canvas.drawBitmap(monkey30, 200, 100, mPaint);
                 Bitmap monkey31 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey3legsil);
                 canvas.drawBitmap(monkey31, bitmapWidth[1], bitmapHeight[1], mPaint);
                 Bitmap monkey32 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey3armrsil);
@@ -191,7 +191,24 @@ public class MyView extends View {
                 canvas.drawBitmap(monkey35, bitmapWidth[5], bitmapHeight[5], mPaint);
                 Bitmap monkey36 = BitmapFactory.decodeResource(getResources(), R.drawable.monkey3headsil);
                 canvas.drawBitmap(monkey36, bitmapWidth[6], bitmapHeight[6], mPaint);
-
+                break;
+            case 7:
+                bitmapWidth[0] = 750;
+                bitmapHeight[0] = 180;
+                bitmapWidth[1] = bitmapWidth[0];
+                bitmapHeight[1] = bitmapHeight[0];
+                bitmapWidth[2] = bitmapWidth[0] - 10;
+                bitmapHeight[2] = bitmapHeight[0] + 250;
+                bitmapWidth[3] = bitmapWidth[0] - 80;
+                bitmapHeight[3] = bitmapHeight[0] + 175;
+//                Bitmap dog10 = BitmapFactory.decodeResource(getResources(), R.drawable.bird1);
+//                canvas.drawBitmap(dog10, 300, 100, mPaint);
+                Bitmap bird11 = BitmapFactory.decodeResource(getResources(), R.drawable.bird1headsil);
+                canvas.drawBitmap(bird11, bitmapWidth[1], bitmapHeight[1], mPaint);
+                Bitmap bird12 = BitmapFactory.decodeResource(getResources(), R.drawable.bird1legsil);
+                canvas.drawBitmap(bird12, bitmapWidth[2], bitmapHeight[2], mPaint);
+                Bitmap bird13 = BitmapFactory.decodeResource(getResources(), R.drawable.bird1wingsil);
+                canvas.drawBitmap(bird13, bitmapWidth[3], bitmapHeight[3], mPaint);
                 break;
             default:
                 break;

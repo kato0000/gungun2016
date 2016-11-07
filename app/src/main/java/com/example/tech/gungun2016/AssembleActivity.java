@@ -21,13 +21,14 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
     ImageView imageView[] = new ImageView[5];
     ImageView imageViewS[] = new ImageView[7];
     ImageView image_View;
-    Bitmap bitmap;  //表示画像
-    int bitmapWidth; //画像サイズ 幅
-    int bitmapHeight; //画像サイズ 高さ
     private Paint mPaint = new Paint();
     private int preDx, preDy, newDx, newDy;
+    int imgX,imgY,img_X,img_Y;
+    int initX , initX2;
+    int initY , initY2;
 
     private MyView myView;
+    private Robot robot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,8 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
                 imageView[0].setImageResource(R.drawable.monkey1leg);
                 imageView[1].setImageResource(R.drawable.monkey1body);
                 imageView[2].setImageResource(R.drawable.monkey1head);
+                imageView[3].setImageResource(R.drawable.nai);
+                imageView[4].setImageResource(R.drawable.nai);
                 break;
             case 5:
                 myView.roboid = 5;
@@ -126,47 +129,106 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
                         break;
 
                     case MotionEvent.ACTION_UP:
-
-                        int imgX = myView.bitmapWidth[1];
-                        int imgY = myView.bitmapHeight[1];
-                        int img_X = imageView[0].getLeft() + imageView[0].getWidth() / 2;
-                        int img_Y = imageView[0].getTop() + imageView[0].getHeight() / 2;
-
+                        switch (robot_id){
+                            case 4:
+                                imgX = myView.bitmapWidth[1] + imageView[0].getWidth()/14*10;
+                                imgY = myView.bitmapHeight[1];
+                                initX = 0;
+                                initY = 650;
+                                break;
+                            default:
+                                break;
+                        }
+                        img_X = imageView[0].getLeft();
+                        img_Y = imageView[0].getTop();
                         //離したとき近くにいたらくっつく
                         if (imgX - img_X < 100 && imgX - img_X > -100 && imgY - img_Y < 100 && imgY - img_Y > -100) {
-                            imageView[0].layout(myView.bitmapWidth[1],myView.bitmapHeight[1], imageView[0].getLeft() + imageView[0].getWidth(), imageView[0].getTop() + imageView[0].getHeight());}
+                            imageView[0].layout(imgX,imgY, imgX + imageView[0].getWidth(), imgY + imageView[0].getHeight());
+                        }
+                        else {
+                            imageView[0].layout(initX,initY, initX + imageView[0].getWidth(), initY + imageView[0].getHeight());
+                        }
                         break;
                 }
                 break;
-//            case R.id.parts2:
-//                // x,y 位置取得
-//                newDx = (int) event.getRawX();
-//                newDy = (int) event.getRawY();
-//
-//                switch (event.getAction()) {
-//                    // ドラッグしたら
-//                    case MotionEvent.ACTION_MOVE:
-//                        // ACTION_MOVEでの位置
-//                        int dx = imageView[1].getLeft() + (newDx - preDx);
-//                        int dy = imageView[1].getTop() + (newDy - preDy);
-//
-//                        // 画像の位置を設定する
-//                        imageView[1].layout(dx, dy, dx + imageView[1].getWidth(), dy + imageView[1].getHeight());
-//                        break;
-//
-//                    case MotionEvent.ACTION_UP:
-//
-//                        int imgX = imageViewS[1].getLeft() + imageViewS[1].getWidth() / 2;
-//                        int imgY = imageViewS[1].getTop() + imageViewS[1].getHeight() / 2;
-//                        int img_X = imageView[1].getLeft() + imageView[1].getWidth() / 2;
-//                        int img_Y = imageView[1].getTop() + imageView[1].getHeight() / 2;
-//
-//                        //離したとき近くにいたらくっつく
-//                        if (imgX - img_X < 100 && imgX - img_X > -100 && imgY - img_Y < 100 && imgY - img_Y > -100) {
-//                            imageView[1].layout(imageViewS[1].getLeft(), imageViewS[1].getTop(), imageViewS[1].getLeft() + imageViewS[1].getWidth(), imageViewS[1].getTop() + imageViewS[1].getHeight());}
-//                        break;
-//                }
-//                break;
+            case R.id.parts2:
+                // x,y 位置取得
+                newDx = (int) event.getRawX();
+                newDy = (int) event.getRawY();
+
+                switch (event.getAction()) {
+                    // ドラッグしたら
+                    case MotionEvent.ACTION_MOVE:
+                        // ACTION_MOVEでの位置
+                        int dx = imageView[1].getLeft() + (newDx - preDx);
+                        int dy = imageView[1].getTop() + (newDy - preDy);
+
+                        // 画像の位置を設定する
+                        imageView[1].layout(dx, dy, dx + imageView[1].getWidth(), dy + imageView[1].getHeight());
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        switch (robot_id){
+                            case 4:
+                                imgX = myView.bitmapWidth[2] + imageView[1].getWidth()/14*15;
+                                imgY = myView.bitmapHeight[2];
+                                initX = 0;
+                                initY = 350;
+                                break;
+                            default:
+                                break;
+                        }
+                        img_X = imageView[1].getLeft();
+                        img_Y = imageView[1].getTop();
+                        //離したとき近くにいたらくっつく
+                        if (imgX - img_X < 100 && imgX - img_X > -100 && imgY - img_Y < 100 && imgY - img_Y > -100) {
+                            imageView[1].layout(imgX,imgY, imgX + imageView[1].getWidth(), imgY + imageView[1].getHeight());
+                        }
+                        else {
+                            imageView[1].layout(initX,initY, initX + imageView[1].getWidth(), initY + imageView[1].getHeight());
+                        }
+                        break;
+                }
+                break;
+            case R.id.parts3:
+                // x,y 位置取得
+                newDx = (int) event.getRawX();
+                newDy = (int) event.getRawY();
+
+                switch (event.getAction()) {
+                    // ドラッグしたら
+                    case MotionEvent.ACTION_MOVE:
+                        // ACTION_MOVEでの位置
+                        int dx = imageView[2].getLeft() + (newDx - preDx);
+                        int dy = imageView[2].getTop() + (newDy - preDy);
+
+                        // 画像の位置を設定する
+                        imageView[2].layout(dx, dy, dx + imageView[2].getWidth(), dy + imageView[2].getHeight());
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        switch (robot_id){
+                            case 4:
+                                imgX = myView.bitmapWidth[3] + imageView[2].getWidth()/28*30;
+                                imgY = myView.bitmapHeight[3];
+                                initX = 0;
+                                initY = 0;
+                                break;
+                        }
+
+
+                        img_X = imageView[2].getLeft();
+                        img_Y = imageView[2].getTop();
+                        //離したとき近くにいたらくっつく違ったら元の場所に戻る
+                        if (imgX - img_X < 100 && imgX - img_X > -100 && imgY - img_Y < 100 && imgY - img_Y > -100) {
+                            imageView[2].layout(imgX,imgY, imgX + imageView[2].getWidth(), imgY + imageView[2].getHeight());
+                        }
+                        else {
+                            imageView[2].layout(initX,initY, initX + imageView[2].getWidth(), initY + imageView[2].getHeight());
+                        }
+                        break;
+                }
+                break;
         }
 
         //タッチした位置を古い位置とする

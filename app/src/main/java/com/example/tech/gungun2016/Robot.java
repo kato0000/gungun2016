@@ -10,29 +10,33 @@ public class Robot {
     int status;
     String name;
     Part[] parts;
+    private MyView myView;
+    ImageView imageView[] = new ImageView[5];
+    int imgX,imgY,img_X,img_Y;
+    int initX,initY;
 
     Robot(int id,int level,int status,String name){
         this.id = id;
         this.level = level;
         this.status = status;
         this.name = name;
-        switch (level){
-            case 1:
-                parts = new Part[3];
-                break;
-            case 2:
-                parts = new Part[4];
-                break;
-            case 3:
-                parts = new Part[5];
-                break;
-        }
-        switch (id){
-            case 1:
-                break;
-        }
     }
 
-    public void display() {
+    public void move(int robotid, int patsid) {
+        switch (robotid) {
+            case 4:
+                switch (patsid) {
+                    case 0:
+
+                        break;
+                    case 1:
+
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+
     }
 }

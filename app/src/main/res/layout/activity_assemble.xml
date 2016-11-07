@@ -34,17 +34,9 @@
 
         <FrameLayout
             android:layout_width="400dp"
-            android:layout_height="match_parent"></FrameLayout>
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/parts4" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/parts5" />
+        </FrameLayout>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -72,6 +64,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/parts3"
             android:src="@drawable/monkey1head" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parts4"
+            android:src="@drawable/bird3tail"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="100dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parts5"
+            android:src="@drawable/bird3body"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="100dp" />
 
     </FrameLayout>
 
