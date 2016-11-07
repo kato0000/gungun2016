@@ -48,7 +48,8 @@
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/textViewA2"
                 android:layout_toStartOf="@+id/textViewA2"
-                android:src="@drawable/dekita" />
+                android:src="@drawable/dekita"
+                android:background="@drawable/button2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,7 +89,8 @@
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:id="@+id/imageView2"
-                android:src="@drawable/yokudekita" />
+                android:src="@drawable/yokudekita"
+                android:background="@drawable/button6" />
 
             <TextView
                 android:layout_width="wrap_content"

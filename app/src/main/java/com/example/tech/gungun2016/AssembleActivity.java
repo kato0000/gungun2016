@@ -64,6 +64,9 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
                 break;
             case 5:
                 myView.roboid = 5;
+                imageView[0].setImageResource(R.drawable.monkey2leg);
+                imageView[1].setImageResource(R.drawable.monkey2body);
+                imageView[2].setImageResource(R.drawable.monkey1head);
 
                 break;
             case 6:
