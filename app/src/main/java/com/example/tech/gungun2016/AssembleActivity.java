@@ -17,15 +17,13 @@ import android.widget.TextView;
 public class AssembleActivity extends Activity implements View.OnTouchListener {
     Intent i;
     int robot_id;
-    int parts_id[] = { R.id.parts1, R.id.parts2, R.id.parts3, R.id.parts4, R.id.parts5};
-    ImageView imageView[] = new ImageView[5];
-    ImageView imageViewS[] = new ImageView[7];
-    ImageView image_View;
-    private Paint mPaint = new Paint();
+    int robot_status;
+    int parts_id[] = { R.id.parts1, R.id.parts2, R.id.parts3, R.id.parts4, R.id.parts5, R.id.parts6, R.id.parts7};
+    ImageView imageView[] = new ImageView[7];
     private int preDx, preDy, newDx, newDy;
     int imgX,imgY,img_X,img_Y;
-    int initX , initX2;
-    int initY , initY2;
+    int initX;
+    int initY;
 
     private MyView myView;
     private Robot robot;
@@ -39,6 +37,7 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
 
         i =  getIntent();
         robot_id = i.getIntExtra("robot_id",0);
+        robot_status = i.getIntExtra("status",100);
         for (int j=0;j<imageView.length;j++){
             imageView[j] = (ImageView) findViewById(parts_id[j]);
         }
@@ -67,9 +66,13 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
                 break;
             case 5:
                 myView.roboid = 5;
-                imageView[0].setImageResource(R.drawable.monkey2leg);
-                imageView[1].setImageResource(R.drawable.monkey2body);
-                imageView[2].setImageResource(R.drawable.monkey1head);
+                //monkey2sword,monkey2armr,monkey2leg,monkey2body,monkey2arml,monkey2head
+                imageView[0].setImageResource(R.drawable.monkey2sword);
+                imageView[1].setImageResource(R.drawable.monkey2armr);
+                imageView[2].setImageResource(R.drawable.monkey2leg);
+                imageView[3].setImageResource(R.drawable.monkey2body);
+                imageView[4].setImageResource(R.drawable.monkey2arml);
+                imageView[5].setImageResource(R.drawable.monkey2head);
 
                 break;
             case 6:
@@ -110,6 +113,52 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        //このやり方でいきたい
+//        for(int i = 0; i < parts_id.length; i++) {
+//            // x,y 位置取得
+//            newDx = (int) event.getRawX();
+//            newDy = (int) event.getRawY();
+//
+//            switch (event.getAction()) {
+//                // ドラッグしたら
+//                case MotionEvent.ACTION_MOVE:
+//
+//                    // ACTION_MOVEでの位置
+//                    int dx = imageView[i].getLeft() + (newDx - preDx);
+//                    int dy = imageView[i].getTop() + (newDy - preDy);
+//
+//                    // 画像の位置を設定する
+//                    imageView[i].layout(dx, dy, dx + imageView[i].getWidth(), dy + imageView[i].getHeight());
+//                    break;
+//
+//                case MotionEvent.ACTION_UP:
+//                    switch (robot_id){
+//                        case 4:
+//                            imgX = myView.bitmapWidth[1] + imageView[0].getWidth()/14*10;
+//                            imgY = myView.bitmapHeight[1];
+//                            initX = 0;
+//                            initY = 650;
+//                            break;
+//                        default:
+//                            break;
+//                    }
+//                    img_X = imageView[i].getLeft();
+//                    img_Y = imageView[i].getTop();
+//                    //離したとき近くにいたらくっつく
+//                    if (imgX - img_X < 100 & imgX - img_X > -100 && imgY - img_Y < 100 && imgY - img_Y > -100) {
+//                        imageView[i].layout(imgX,imgY, imgX + imageView[i].getWidth(), imgY + imageView[i].getHeight());
+//                    }
+//                    else {
+//                        imageView[i].layout(initX,initY, initX + imageView[i].getWidth(), initY + imageView[i].getHeight());
+//                    }
+//                    break;
+//            }
+//            //タッチした位置を古い位置とする
+//            preDx = newDx;
+//            preDy = newDy;
+//
+//            return true;
+//        }
         switch (v.getId()) {
             case R.id.parts1:
                 // x,y 位置取得
@@ -119,7 +168,7 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
                 switch (event.getAction()) {
                     // ドラッグしたら
                     case MotionEvent.ACTION_MOVE:
-
+//                        posset(parts_id[0]);
                         // ACTION_MOVEでの位置
                         int dx = imageView[0].getLeft() + (newDx - preDx);
                         int dy = imageView[0].getTop() + (newDy - preDy);
@@ -235,7 +284,7 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
         preDx = newDx;
         preDy = newDy;
 
-        return true;
+       return true;
     }
 
     public void onActiveClick(View view){
@@ -246,5 +295,22 @@ public class AssembleActivity extends Activity implements View.OnTouchListener {
                 finish();
                 break;
         }
+    }
+    public void posset(int partsid){
+        int pid = 0;
+        switch (partsid) {
+            case R.id.parts1:
+                pid = 0;
+                break;
+            case R.id.parts2:
+                pid = 1;
+                break;
+        }
+            //ACTION_MOVEでの位置
+            int dx = imageView[pid].getLeft() + (newDx - preDx);
+            int dy = imageView[pid].getTop() + (newDy - preDy);
+
+            // 画像の位置を設定する
+            imageView[pid].layout(dx, dy, dx + imageView[pid].getWidth(), dy + imageView[pid].getHeight());
     }
 }
