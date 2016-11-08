@@ -24,13 +24,13 @@ public class SelectActivity extends Activity {
 
         ImageView imageViews[] = new ImageView[9];
         final Robot[] robots = new Robot[9];
-        robots[0] = new Robot(1,1,2,"dog1");
-        robots[1] = new Robot(2,2,1,"dog2");
+        robots[0] = new Robot(1,1,0,"dog1");
+        robots[1] = new Robot(2,2,0,"dog2");
         robots[2] = new Robot(3,3,0,"dog3");
         robots[3] = new Robot(4,1,2,"monkey1");
-        robots[4] = new Robot(5,2,2,"monkey2");
+        robots[4] = new Robot(5,2,0,"monkey2");
         robots[5] = new Robot(6,3,0,"monkey3");
-        robots[6] = new Robot(7,1,2,"bird1");
+        robots[6] = new Robot(7,1,0,"bird1");
         robots[7] = new Robot(8,2,0,"bird2");
         robots[8] = new Robot(9,3,0,"bird3");
         int Rid[] = { R.id.robot1, R.id.robot2, R.id.robot3, R.id.robot4, R.id.robot5, R.id.robot6, R.id.robot7, R.id.robot8, R.id.robot9};
@@ -49,6 +49,7 @@ public class SelectActivity extends Activity {
         int qes = R.drawable.mark_question;
 
         for(int i=0; i< imageViews.length; i++) {
+            //ステータスによって画像を変える
             imageViews[i] = (ImageView) findViewById(Rid[i]);
             switch(robots[i].status){
                 case 0:
@@ -63,15 +64,92 @@ public class SelectActivity extends Activity {
             }
 
             final int finalI = i;
-            imageViews[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
-                    intent.putExtra("robot_id", robots[finalI].id);
-                    startActivity(intent);
-                }
-             });
+            //押せるかどうか
+            switch (robots[i].status) {
+                case 0:
+                    boolean cou = false;
+                    for (int j = 0; j < imageViews.length; j++) {
+                        if (robots[j].status == 1) {
+                            cou = true;
+                        }
+                    }
+                    if(!cou) {
+                        switch (robots[i].id) {
+                            case 1:
+                                imageViews[i].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
+                                        intent.putExtra("robot_id", robots[finalI].id);
+                                        intent.putExtra("status", robots[finalI].status);
+                                        startActivity(intent);
+                                    }
+                                });
+                                break;
+                            case 4:
+                                imageViews[i].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
+                                        intent.putExtra("robot_id", robots[finalI].id);
+                                        intent.putExtra("status", robots[finalI].status);
+                                        startActivity(intent);
+                                    }
+                                });
+                                break;
+                            case 7:
+                                imageViews[i].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
+                                        intent.putExtra("robot_id", robots[finalI].id);
+                                        intent.putExtra("status", robots[finalI].status);
+                                        startActivity(intent);
+                                    }
+                                });
+                                break;
+                            default:
+                                if(robots[i-1].status == 2){
+                                    imageViews[i].setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
+                                            intent.putExtra("robot_id", robots[finalI].id);
+                                            intent.putExtra("status", robots[finalI].status);
+                                            startActivity(intent);
+                                        }
+                                    });
+                                }
+                                break;
+                        }
+
+                    }
+                    break;
+                case 1:
+                    imageViews[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
+                            intent.putExtra("robot_id", robots[finalI].id);
+                            intent.putExtra("status", robots[finalI].status);
+                            startActivity(intent);
+                        }
+                    });
+                    break;
+                case 2:
+                    imageViews[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(SelectActivity.this, AssembleActivity.class);
+                            intent.putExtra("robot_id", robots[finalI].id);
+                            intent.putExtra("status", robots[finalI].status);
+                            startActivity(intent);
+                        }
+                    });
+                    break;
+            }
         }
+        //枠線の処理
         for (int i = 0;i<imageViews.length;i++) {
             if(robots[i].status == 1){
                 imageViews[i].setBackgroundResource(R.drawable.border);
@@ -89,7 +167,47 @@ public class SelectActivity extends Activity {
                     }
                 }
                 if(!count){
-                    imageViews[i].setBackgroundResource(R.drawable.border);
+                    switch (robots[i].id) {
+                        case 1:
+                            imageViews[i].setBackgroundResource(R.drawable.border);
+                            break;
+                        case 2:
+                            if(robots[i-1].status == 2){
+                                imageViews[i].setBackgroundResource(R.drawable.border);
+                            }
+                            break;
+                        case 3:
+                            if(robots[i-1].status == 2){
+                                imageViews[i].setBackgroundResource(R.drawable.border);
+                            }
+                            break;
+                        case 4:
+                            imageViews[i].setBackgroundResource(R.drawable.border);
+                            break;
+                        case 5:
+                            if(robots[i-1].status == 2){
+                                imageViews[i].setBackgroundResource(R.drawable.border);
+                            }
+                            break;
+                        case 6:
+                            if(robots[i-1].status == 2){
+                                imageViews[i].setBackgroundResource(R.drawable.border);
+                            }
+                            break;
+                        case 7:
+                            imageViews[i].setBackgroundResource(R.drawable.border);
+                            break;
+                        case 8:
+                            if(robots[i-1].status == 2){
+                                imageViews[i].setBackgroundResource(R.drawable.border);
+                            }
+                            break;
+                        case 9:
+                            if(robots[i-1].status == 2){
+                                imageViews[i].setBackgroundResource(R.drawable.border);
+                            }
+                            break;
+                    }
                 }
             }
         }
